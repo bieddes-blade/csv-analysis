@@ -6,7 +6,7 @@
 #include <string>
 #include <algorithm>
 
-extern float INF;
+const double INF = 1000000000;
 
 extern void queryMeanMaxSpeedComparison();
 

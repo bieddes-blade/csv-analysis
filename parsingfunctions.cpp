@@ -31,8 +31,8 @@ void processRow(rapidcsv::Document & doc, int index) {
 
     std::string name = doc.GetCell<std::string>("Name", index);
     std::string sessionType = doc.GetCell<std::string>("Session_Type", index);
-    float sleepQuality = doc.GetCell<float>("Sleep_Quality", index);
-    float maxSpeed = doc.GetCell<float>("Max_Speed", index);
+    double sleepQuality = doc.GetCell<double>("Sleep_Quality", index);
+    double maxSpeed = doc.GetCell<double>("Max_Speed", index);
 
     if (sessionType == "Practice") {
         calculateMaxSpeedPractice(name, maxSpeed);

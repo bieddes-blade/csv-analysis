@@ -1,8 +1,6 @@
 #include "queryfunctions.h"
 #include "analysisfunctions.h"
 
-float INF = 1000000000;
-
 void queryMeanMaxSpeedComparison() {
     /*
 
@@ -12,8 +10,8 @@ void queryMeanMaxSpeedComparison() {
     */
 
     for (auto const& [key, val] : sumMaxSpeedPractice) {
-        float meanMaxSpeedPractice = val / numPracticeSessions[key];
-        float meanMaxSpeedGame = sumMaxSpeedGame[key] / numGameSessions[key];
+        double meanMaxSpeedPractice = val / numPracticeSessions[key];
+        double meanMaxSpeedGame = sumMaxSpeedGame[key] / numGameSessions[key];
         if (meanMaxSpeedGame > meanMaxSpeedPractice) {
             std::cout << key << "\n";
         }
@@ -23,9 +21,9 @@ void queryMeanMaxSpeedComparison() {
 
 void queryWorstMeanSleepQuality() {
     std::vector<std::string> names;
-    float worstQuality = INF;
+    double worstQuality = INF;
     for (auto const& [key, val] : sumSleepQuality) {
-        float quality =  val / (float)(numPracticeSessions[key] + numGameSessions[key]);
+        double quality =  val / (double)(numPracticeSessions[key] + numGameSessions[key]);
         if (quality < worstQuality) {
             names.clear();
             names.push_back(key);
@@ -57,7 +55,7 @@ void printMeanMaxSpeedGame() {
 
 void printMeanSleepQuality() {
     for (auto const& [key, val] : sumSleepQuality) {
-        std::cout << key << " " << val / (float)(numPracticeSessions[key] + numGameSessions[key]) << "\n";
+        std::cout << key << " " << val / (double)(numPracticeSessions[key] + numGameSessions[key]) << "\n";
     }
     std::cout << "\n";
 }
@@ -74,7 +72,7 @@ void printMedianSleepQuality() {
 void printModeSleepQuality() {
     for (auto const& [key, val] : modeSleepQuality) {
         int maxFrequency = -1;
-        float mostFrequent = -1;
+        double mostFrequent = -1;
         for (auto const& [innerKey, innerValue] : val) {
             if (innerValue > maxFrequency) {
                 maxFrequency = innerValue;

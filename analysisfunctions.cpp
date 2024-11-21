@@ -1,11 +1,11 @@
 #include "analysisfunctions.h"
 
-std::map<std::string, float> sumMaxSpeedPractice, sumMaxSpeedGame, sumSleepQuality;
+std::map<std::string, double> sumMaxSpeedPractice, sumMaxSpeedGame, sumSleepQuality;
 std::map<std::string, int> numPracticeSessions, numGameSessions;
-std::map<std::string, std::vector<float>> medianSleepQuality;
-std::map<std::string, std::map<float, int>> modeSleepQuality;
+std::map<std::string, std::vector<double>> medianSleepQuality;
+std::map<std::string, std::map<double, int>> modeSleepQuality;
 
-void calculateMaxSpeedPractice(std::string & name, float maxSpeed) {
+void calculateMaxSpeedPractice(std::string & name, double maxSpeed) {
     /*
 
     to calculate the mean maximum speed of each player during practice sessions, we need to count
@@ -27,7 +27,7 @@ void calculateMaxSpeedPractice(std::string & name, float maxSpeed) {
     }
 }
 
-void calculateMaxSpeedGame(std::string & name, float maxSpeed) {
+void calculateMaxSpeedGame(std::string & name, double maxSpeed) {
     /*
 
     to calculate the mean maximum speed of each player during game sessions, we need to count
@@ -49,7 +49,7 @@ void calculateMaxSpeedGame(std::string & name, float maxSpeed) {
     }
 }
 
-void calculateSleepQuality(std::string & name, float sleepQuality) {
+void calculateSleepQuality(std::string & name, double sleepQuality) {
     /*
 
     to calculate the mean sleep quality for each player, we need to count the sum of all sleep
@@ -72,7 +72,7 @@ void calculateSleepQuality(std::string & name, float sleepQuality) {
     */
 
     if (medianSleepQuality.find(name) == medianSleepQuality.end()) {
-        medianSleepQuality[name] = std::vector<float>();
+        medianSleepQuality[name] = std::vector<double>();
     }
     medianSleepQuality[name].push_back(sleepQuality);
 
